@@ -197,18 +197,17 @@
     }
 
     body {
-    font-family: 'Poppins', sans-serif;
-}
+        font-family: 'Poppins', sans-serif;
+    }
 
-.card {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
+    .card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
 
-.card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-}
-
+    .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
 </style>
 
 <body>
@@ -276,8 +275,9 @@
 
             </div> <!-- .container-fluid -->
         </header>
-    </div> <!-- .site-wrap --> <hr>
-   
+    </div> <!-- .site-wrap -->
+    <hr>
+
 
 
     @yield('content')
@@ -287,6 +287,7 @@
     @yield('sport')
     @yield('contactus')
     @yield('about')
+    @yield('Show detail blog')
 
 
     <div class="site-footer">

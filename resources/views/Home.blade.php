@@ -45,7 +45,7 @@
                                 <p class="text-secondary mb-4">
                                     {{ Str::limit($b->description, 100) }}
                                 </p>
-                                <a href="{{ url('/sport') }}" class="btn btn-danger px-4 rounded-pill fw-semibold">
+                                <a href="{{ url('/show/' .$b->id) }}" class="btn btn-danger px-4 rounded-pill fw-semibold">
                                     Read More
                                 </a>
                             </div>
@@ -62,7 +62,7 @@
                                 <p class="text-secondary mb-4 fs-6">
                                     {{ Str::limit($b->description, 60) }}
                                 </p>
-                                <a href="{{ url('/travel') }}" class="text-primary fw-semibold small text-decoration-none">
+                                <a href="{{ url('/show/'. $b->id) }}" class="text-primary fw-semibold small text-decoration-none">
                                     Read More →
                                 </a>
                             </div>
@@ -104,7 +104,7 @@
                                 <p class="text-secondary mb-4">
                                     {{ Str::limit($b->description, 160) }}
                                 </p>
-                                <a href="{{ url('/food') }}" class="btn btn-success px-4 rounded-pill fw-semibold">
+                                <a href="{{ url('/show/'. $b->id) }}" class="btn btn-success px-4 rounded-pill fw-semibold">
                                     Read More
                                 </a>
                             </div>
@@ -129,7 +129,7 @@
                                     </span>
                                     <h6 class="fw-bold mb-1">{{ $b->title }}</h6>
                                     <p class="small text-secondary mb-1">{{ Str::limit($b->description, 50) }}</p>
-                                    <a href="{{ url('/food') }}" class="text-success fw-semibold small text-decoration-none">
+                                    <a href="{{ url('/show/'. $b->id) }}" class="text-success fw-semibold small text-decoration-none">
                                         Read More →
                                     </a>
                                 </div>
@@ -172,7 +172,7 @@
                             <p class="text-secondary small mb-0">
                                 {{ Str::limit($b->description, 100) }}
                             </p>
-                            <a href="{{ url('/sport') }}" class="text-primary fw-semibold small text-decoration-none">
+                            <a href="{{ url('/show/'. $b->id) }}" class="text-primary fw-semibold small text-decoration-none">
                                 Read More →
                             </a>
                         </div>

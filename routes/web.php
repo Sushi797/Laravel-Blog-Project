@@ -14,6 +14,7 @@ use App\Http\Controllers\FoodController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\NatureController;
+use App\Http\Controllers\ShowController;
 use App\Http\Controllers\SportController;
 use App\Http\Controllers\TravelController;
 use Illuminate\Support\Facades\Route;
@@ -36,9 +37,10 @@ Route::get('nature', [NatureController::class, "nature"]);
 
 Route::get('contact', [ContactUsController::class, "contactus"]);
 
+Route::get('show/{id}', [ShowController::class, 'show']);
+
 //---------------------------------------------------------------------------------
-Route::get('login', [LoginController::class, "login"]);
-Route::post('login_check', [LoginController::class, "login_check"]);
+
 
 
 Route::get('AD', [ADrecentController::class, "recent"]);

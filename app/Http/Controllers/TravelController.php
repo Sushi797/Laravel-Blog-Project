@@ -28,4 +28,4 @@ class TravelController extends Controller
         return view('Travel', compact('latestTravel', 'FullblogsT'));
     }
 
-}
+}    
