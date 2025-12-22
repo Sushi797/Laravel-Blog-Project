@@ -64,13 +64,15 @@
 </head>
 
 <body>
+    @if(session('error'))
+        <p style="color:red">{{ session('error') }}</p>
+    @endif
 
     <div class="login-card">
         <h3 class="text-center mb-3">Admin Login</h3>
         <p class="text-center text-muted mb-4">Access your dashboard</p>
 
-        <form action="{{ url("/login_check") }}" method="POST">
-            <!-- CSRF for Laravel -->
+        <form action="{{ route('admin.login') }}" method="POST">
             @csrf
             <div class="mb-3">
                 <label class="form-label">User Name</label>
@@ -79,12 +81,14 @@
 
             <div class="mb-3">
                 <label class="form-label">Email Address</label>
-                <input type="email" class="form-control" name="email" id="email" placeholder="Enter your email" required>
+                <input type="email" class="form-control" name="email" id="email" placeholder="Enter your email"
+                    required>
             </div>
 
             <div class="mb-3">
                 <label class="form-label">Password</label>
-                <input type="password" class="form-control" name="password" id="password" placeholder="Enter your password" required>
+                <input type="password" class="form-control" name="password" id="password"
+                    placeholder="Enter your password" required>
             </div>
 
             <div class="d-flex justify-content-between mb-3">

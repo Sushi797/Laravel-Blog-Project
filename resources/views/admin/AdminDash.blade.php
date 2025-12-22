@@ -1,5 +1,5 @@
 @extends('admin.Home')
-@section('AdRecent')
+@section('AdminDash')
 
 
     <div class="d-flex justify-content-between align-items-center mb-3">
@@ -12,18 +12,18 @@
 
 
     <div class="row g-4">
-        @foreach ($allblogs as $A)
+        @foreach ( $blogs as $blog)
             <!-- Blog Card -->
             <div class="col-md-4">
                 <div class="card shadow-sm">
-                    <img src="{{ asset($A->img_path) }}" class="card-img-top" alt="Blog Image">
+                    <img src="{{ asset($blog->img_path) }}" class="card-img-top" alt="Blog Image">
                     <div class="card-body">
-                        <h6 class="fw-bold">{{$A->title}}</h6>
-                        <p class="badge bg-primary text-uppercase mb-2 fw-bold ">{{ $A->category->name }}</p>
-                        <p class="text-secondary small mb-3">{{ Str::limit($A->description, 100) }}</p>
+                        <h6 class="fw-bold">{{$blog->title}}</h6>
+                        <p class="badge bg-primary text-uppercase mb-2 fw-bold ">{{ $blog->category->name }}</p>
+                        <p class="text-secondary small mb-3">{{ Str::limit($blog->description, 100) }}</p>
                         <div class="d-flex justify-content-between">
-                            <a href="{{ url('/edit/'. $A->id) }}" class="btn btn-sm btn-warning"><i class="bi bi-pencil"></i> Edit</a>
-                            <form action="{{  url('/delete/' . $A->id) }}" method="POST"
+                            <a href="{{ url('/edit/'. $blog->id) }}" class="btn btn-sm btn-warning"><i class="bi bi-pencil"></i> Edit</a>
+                            <form action="{{  url('/delete/' . $blog->id) }}" method="POST"
                                 onsubmit="return confirm('Are you sure you want to delete this blog?');">
                                 @csrf
                                 @method('DELETE')

@@ -64,6 +64,21 @@
       color: #fff;
     }
 
+    #bt{
+      color: #adb5bd;
+      text-decoration: none;
+      display: block;
+      padding: 10px 20px;
+      border-radius: 4px;
+      transition: all 0.2s;
+    }
+
+    #bt:hover,
+    #bt.active{
+      background-color: #495057;
+      color: #fff;
+    }
+    
     .main-content {
       margin-left: 240px;
       padding: 20px;
@@ -115,10 +130,10 @@
   <div class="sidebar d-flex flex-column">
     <div class="profile">
       <img src="https://randomuser.me/api/portraits/men/60.jpg" alt="Admin Photo">
-      <h6>John Doe</h6>
+      <h6>{{$admin->name ?? 'Admin'}}</h6>
     </div>
 
-    <a class="{{ request()->is('AD') ? 'active' : '' }}" href="{{ url('AD') }}" class="active"><i
+    <a class="{{ request()->is('admin/AdminDash') ? 'active' : '' }}" href="{{ url('admin/AdminDash') }}" class="active"><i
         class="bi bi-speedometer2 me-2"></i> Dashboard</a>
     <a class="{{ request()->is('ADtravel') ? 'active' : '' }}" href="{{ url('ADtravel') }}"><i
         class="bi bi-journal-text me-2"></i> Travel Blogs</a>
@@ -130,9 +145,13 @@
         class="bi bi-tree me-2"></i> Nature Blogs</a>
     <a href="#"><i class="bi bi-envelope me-2"></i> Messages</a>
     <a href="#"><i class="bi bi-gear me-2"></i> Settings</a>
-    <a href="#"><i class="bi bi-box-arrow-right me-2"></i> Logout</a>
+    <form action={{ url("/admin/logout") }} method="GET">
+      <a><button class="bg-dark" id="bt" type="submit"><i class="bi bi-box-arrow-right me-2"></i>Logout</button></a>
+    </form>
     <div class="mt-auto text-center small text-secondary py-3">© 2025 Blog Admin</div>
   </div>
+
+
 
   <!-- Main Content -->
   <div class="main-content">
@@ -149,7 +168,7 @@
       </div>
     </nav>
 
-    @yield('AdRecent')
+    @yield('AdminDash')
     @yield('Adtravel')
     @yield('Adfood')
     @yield('Adnature')

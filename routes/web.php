@@ -2,9 +2,8 @@
 
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\ADfoodController;
-use App\Http\Controllers\ADHomeController;
+use App\Http\Controllers\AdminDashController;
 use App\Http\Controllers\ADnatureController;
-use App\Http\Controllers\ADrecentController;
 use App\Http\Controllers\ADsportController;
 use App\Http\Controllers\ADtravelController;
 use App\Http\Controllers\ContactUsController;
@@ -23,35 +22,36 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+//User view routes
 Route::get('Test', [HomeController::class, "home"]);
-
 Route::get('about', [AboutController::class, "about"]);
-
 Route::get('travel', [TravelController::class, "Travel"]);
-
 Route::get('food', [FoodController::class, "food"]);
-
 Route::get('sport', [SportController::class, "sport"]);
-
 Route::get('nature', [NatureController::class, "nature"]);
-
 Route::get('contact', [ContactUsController::class, "contactus"]);
-
 Route::get('show/{id}', [ShowController::class, 'show']);
 
-//---------------------------------------------------------------------------------
-
-
-
-Route::get('AD', [ADrecentController::class, "recent"]);
-
+//admin view routes
+Route::get('admin/AdminDash', [LoginController::class, "dashboard"]);
 Route::get('ADtravel', [ADtravelController::class, "travel"]);
 Route::get('ADfood', [ADfoodController::class, "food"]);
 Route::get('ADsport', [ADsportController::class, "sport"]);
 Route::get('ADnature', [ADnatureController::class, "nature"]);
 
-
+//admin access routes
 Route::get('create', [cretaeController::class, "create"]);
 Route::post('update', [cretaeController::class, "Update"]);
 Route::delete('delete/{id}', [cretaeController::class,'delete']);
 Route::get('edit/{id}', [editController::class, "Edit"]);
+
+
+// Login routes
+Route::get('/admin/login', [LoginController::class, 'showLogin']);
+Route::post('/admin/login', [LoginController::class, 'login'])->name('admin.login');
+
+// Protected admin routes
+Route::middleware('admin')->group(function () {
+    Route::get('/admin/AdminDash', [LoginController::class, 'dashboard']);
+    Route::get('/admin/logout', [LoginController::class, 'logout']);
+});

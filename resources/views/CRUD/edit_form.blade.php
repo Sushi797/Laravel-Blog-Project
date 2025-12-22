@@ -80,7 +80,7 @@
 
         <!-- Buttons -->
         <div class="d-flex gap-3 mt-4">
-            <a href="{{ url('/AD') }}"
+            <a href="{{ url('/admin/AdminDash') }}"
                 class="btn btn-light border btn-lg w-50 rounded-3 shadow-sm fw-semibold hover-scale">
                 <i class="fas fa-arrow-left me-2"></i> Cancel
             </a>
